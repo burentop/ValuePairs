@@ -8,34 +8,53 @@
 
 #include "../../../std_lib_facilities.h"
 
+bool find_smallest(double x, double y)
+{
+    if (x <= y) {
+        return true;
+    }
+    return false;
+}
+
+bool find_largest(double x, double y)
+{
+    if (x >= y) {
+        return true;
+    }
+    return false;
+}
+
+
 int main()
 {
-    double val1, val2;
+    double input;
+    double low, high;
     bool status = true;
     
+    cout << "Please enter a decimal number (enter '|' to quit): ";
+    cin >> input;
+    low = high = input;
+    cout << input << ", the only number entered so far.\n";
+
     
     while (status) {
-        cout << "Please enter two decimal numbers separated by a space (enter '\' to quit): ";
-        cin >> val1 >> val2;
+        cout << "Please enter another decimal number (enter '|' to quit): ";
+        cin >> input;
+        
         if (cin.fail()) {
             cout << "Exiting\n";
             status = false;
             break;
         }
-        if (val1 < val2) {
-            cout << "The smaller value is " << val1 << ".\n";
-            cout << "The larger value is " << val2 << ".\n";
-            if (val2 - val1 < 0.01) {
-                cout << "The numbers are almost equal.\n";
-            }
-        } else if (val2 < val1) {
-            cout << "The smaller value is " << val2 << ".\n";
-            cout << "The larger value is " << val1 << ".\n";
-            if (val1 - val2 < 0.01) {
-                cout << "The numbers are almost equal.\n";
-            }
+        if (find_smallest(input, low)) {
+            low = input;
+            cout << input << ", the smallest so far.\n";
+
+        } else if (find_largest(input, high)) {
+            high = input;
+            cout << input << ", the largest so far.\n";
         } else {
-            cout << "The numbers are equal.\n";
+            cout << input << "\n";
         }
         
         
