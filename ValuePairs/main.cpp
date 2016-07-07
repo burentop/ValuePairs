@@ -10,12 +10,12 @@
 
 int main()
 {
-    int val1, val2;
+    double val1, val2;
     bool status = true;
     
     
     while (status) {
-        cout << "Please enter two whole numbers separated by a space (enter '\' to quit): ";
+        cout << "Please enter two decimal numbers separated by a space (enter '\' to quit): ";
         cin >> val1 >> val2;
         if (cin.fail()) {
             cout << "Exiting\n";
