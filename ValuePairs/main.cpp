@@ -25,9 +25,15 @@ int main()
         if (val1 < val2) {
             cout << "The smaller value is " << val1 << ".\n";
             cout << "The larger value is " << val2 << ".\n";
+            if (val2 - val1 < 0.01) {
+                cout << "The numbers are almost equal.\n";
+            }
         } else if (val2 < val1) {
             cout << "The smaller value is " << val2 << ".\n";
             cout << "The larger value is " << val1 << ".\n";
+            if (val1 - val2 < 0.01) {
+                cout << "The numbers are almost equal.\n";
+            }
         } else {
             cout << "The numbers are equal.\n";
         }
