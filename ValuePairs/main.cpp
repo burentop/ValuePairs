@@ -10,13 +10,9 @@
 
 int main()
 {
-    int val1 = 1;
-    int val2 = 1;
+    int val1, val2;
     bool status = true;
     
-    cout << "Please enter two whole numbers separated by a space (enter '\' to quit): ";
-    cin >> val1 >> val2;
-    cout << val1 << " " << val2 << "\n";
     
     while (status) {
         cout << "Please enter two whole numbers separated by a space (enter '\' to quit): ";
@@ -24,7 +20,9 @@ int main()
         if (cin.fail()) {
             cout << "Exiting\n";
             status = false;
+            break;
         }
+        
         cout << val1 << " " << val2 << "\n";
     }
 }
