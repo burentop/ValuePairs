@@ -11,6 +11,7 @@
 int main()
 {
     int val1, val2;
+    int low, high;
     bool status = true;
     
     
@@ -22,7 +23,14 @@ int main()
             status = false;
             break;
         }
-        
-        cout << val1 << " " << val2 << "\n";
+        if (val1 <= val2) {
+            low = val1;
+            high = val2;
+        } else {
+            low = val2;
+            high = val1;
+        }
+        cout << "The smaller value is " << low << ".\n";
+        cout << "The larger value is " << high << ".\n";
     }
 }
