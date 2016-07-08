@@ -44,11 +44,16 @@ double convert(double input, string unit) {
     return new_input;
 }
 
-void print_summary(double low, double high, double sum, int count) {
+void print_summary(double low, double high, double sum, int count, vector<double> list) {
     cout << "Total values entered: " << count << ".\n";
     cout << "Sum of values entered: " << sum << " meters.\n";
     cout << "Smallest value entered: " << low << " meters.\n";
     cout << "Largest value entered: " << high << " meters.\n";
+    cout << "See below for a list of all the values entered: \n";
+    for (double value : list) {
+        cout << value << "   ";
+    }
+    cout << "\n";
 }
 
 
@@ -60,6 +65,7 @@ int main()
     int count;
     double total = 0;
     bool status = true;
+    vector<double> value_list(0);
     
     
     
@@ -67,12 +73,13 @@ int main()
     cin >> input >> unit;
     if (cin.fail() || (unit != "cm" && unit != "m" && unit != "in" && unit != "ft")) {
         status = false;
-        print_summary(low, high, total, count);
+        print_summary(low, high, total, count, value_list);
     }
     
     converted = convert(input, unit);
     ++count;
     total += converted;
+    value_list.push_back(converted);
     
     
     low = high = converted;
@@ -86,7 +93,7 @@ int main()
         
         if (cin.fail() || (unit != "cm" && unit != "m" && unit != "in" && unit != "ft")) {
             status = false;
-            print_summary(low, high, total, count);
+            print_summary(low, high, total, count, value_list);
             break;
         }
         if (find_smallest(converted, low)) {
@@ -101,7 +108,7 @@ int main()
         }
         ++count;
         total += converted;
-        
+        value_list.push_back(converted);
         
     }
 }
