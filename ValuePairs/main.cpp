@@ -50,6 +50,7 @@ void print_summary(double low, double high, double sum, int count, vector<double
     cout << "Smallest value entered: " << low << " meters.\n";
     cout << "Largest value entered: " << high << " meters.\n";
     cout << "See below for a list of all the values entered: \n";
+    sort(list);
     for (double value : list) {
         cout << value << "   ";
     }
