@@ -56,6 +56,10 @@ int main()
     
     cout << "Please enter a decimal number and a unit ['cm', 'm', 'in', 'ft'](enter '|' to quit): ";
     cin >> input >> unit;
+    if (cin.fail() || (unit != "cm" && unit != "m" && unit != "in" && unit != "ft")) {
+        cout << "Exiting\n";
+        status = false;
+    }
     
     converted = convert(input, unit);
     
@@ -68,7 +72,7 @@ int main()
         cin >> input >> unit;
         converted = convert(input, unit);
         
-        if (cin.fail()) {
+        if (cin.fail() || (unit != "cm" && unit != "m" && unit != "in" && unit != "ft")) {
             cout << "Exiting\n";
             status = false;
             break;
